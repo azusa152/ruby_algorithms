@@ -1,5 +1,6 @@
-input_array = Array.new(10){rand(1...100)} 
-print (input_array)
+require 'benchmark'
+input_array = Array.new(100){rand(1...100)} 
+#print (input_array)
 
 
 def bubble_sort(input_array)
@@ -12,7 +13,10 @@ def bubble_sort(input_array)
             end
         end
     end
-    print (input_array)
+    #print (input_array)
 end
 
-bubble_sort (input_array)
+time = Benchmark.measure {
+    bubble_sort (input_array)
+   }
+   puts time.real

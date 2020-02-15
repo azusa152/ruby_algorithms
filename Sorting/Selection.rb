@@ -1,6 +1,6 @@
 require 'benchmark'
 input_array = Array.new(100){rand(1...100)} 
-print (input_array)
+#print (input_array)
 
 def sellection_sort(input_array)
     for i in 0...input_array.length-1
@@ -14,7 +14,7 @@ def sellection_sort(input_array)
             j=j-1
         end
     end
-    print (input_array)
+   #print (input_array)
 end
 
 time = Benchmark.measure {
