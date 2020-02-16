@@ -91,7 +91,8 @@ class Heap
 
 end
 
-
+=begin
 input_array = Array.new(10){rand(1...100)} 
 heap= Heap.new(input_array)
 print heap.heap
+=end
