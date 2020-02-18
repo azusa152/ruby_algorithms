@@ -20,6 +20,11 @@ end
 
 def partition input_array, low, high
     pivot_index = low
+    middle_point = low + ((high - low)/2)
+    # find median value's index in 3 values
+    midian_index = find_median_value input_array, low, high, middle_point
+    # swap midian_index and high
+    swap input_array, high, midian_index
     pivot_value = input_array[high]
     for index in low...high
         if input_array[index] < pivot_value
@@ -36,6 +41,16 @@ def swap input_array, index1, index2
     input_array[index1] = input_array[index2]
     input_array[index2] = temp
 end 
+
+def find_median_value input_array, index1, index2, index3
+    if input_array[index1] > input_array[index2] and input_array[index1] < input_array[index3]
+        return index1
+    elsif input_array[index2] > input_array[index1] and input_array[index2] < input_array[index3]
+        return index2
+    else
+        return index3
+    end
+end
 
 time = Benchmark.measure {
     quick_sort input_array
