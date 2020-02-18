@@ -19,15 +19,14 @@ def sorting input_array, low, high
 end
 
 def partition input_array, low, high
-    pivot_index = low-1
+    pivot_index = low
     pivot_value = input_array[high]
-    for index in low...high+1
+    for index in low...high
         if input_array[index] < pivot_value
+            swap input_array, pivot_index, index
             pivot_index += 1
-            swap input_array, pivot_index, index      
         end
     end
-    pivot_index += 1
     swap input_array, pivot_index, high
     return pivot_index
 end
