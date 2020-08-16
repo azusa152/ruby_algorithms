@@ -24,31 +24,25 @@ def partition input_array, low, high
     # find median value's index in 3 values
     midian_index = find_median_value input_array, low, high, middle_point
     # swap midian_index and high
-    swap input_array, high, midian_index
+    input_array[high], input_array[midian_index] = input_array[midian_index], input_array[high]
     pivot_value = input_array[high]
     for index in low...high
         if input_array[index] < pivot_value
-            swap input_array, pivot_index, index
+            input_array[pivot_index], input_array[index] = input_array[index], input_array[pivot_index]
             pivot_index += 1
         end
     end
-    swap input_array, pivot_index, high
-    return pivot_index
+    input_array[pivot_index], input_array[high] = input_array[high], input_array[pivot_index]
+    pivot_index
 end
-
-def swap input_array, index1, index2
-    temp = input_array[index1]
-    input_array[index1] = input_array[index2]
-    input_array[index2] = temp
-end 
 
 def find_median_value input_array, index1, index2, index3
     if input_array[index1] > input_array[index2] and input_array[index1] < input_array[index3]
-        return index1
+        index1
     elsif input_array[index2] > input_array[index1] and input_array[index2] < input_array[index3]
-        return index2
+        index2
     else
-        return index3
+        index3
     end
 end
 
